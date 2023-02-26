@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, ManyToOne, BaseEntity } from "typeorm"
 import { Category } from "./Category"
 import { Product } from "./Product"
 
 @Entity({ name: "products_has_categories" })
-export class ProductHasCategorie {
+export class ProductHasCategorie extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id: number

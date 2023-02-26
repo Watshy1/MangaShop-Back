@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Order } from "./Order"
 
-@Entity()
+@Entity({ name: "users" })
 export class User {
 
     @PrimaryGeneratedColumn()
@@ -13,6 +14,27 @@ export class User {
     lastName: string
 
     @Column()
-    age: number
+    birthDate: Date
+
+    @Column()
+    username: string
+
+    @Column()
+    email: string
+
+    @Column()
+    password: string
+
+    @Column()
+    photo: string
+
+    @Column()
+    createdAt: Date
+
+    @Column()
+    updatedAt: Date
+
+    @OneToMany(() => Order, order => order.user_id)
+    order: Order[]
 
 }
